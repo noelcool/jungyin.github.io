@@ -27,6 +27,8 @@ python 의 버전은 3.5를 사용하지 않아도 좋습니다.
 
 centos의 버전은 7입니다. 
 6에서도 동일한 설정시 프로젝트의 동작에 문제가 없었지만 가장 최근에 테스트를 했던 버전은 7이었습니다.
+
+nginx, uwsgi, python 이 기존에 설치되어있다면 그대로 구성 파일만 변경해주면 됩니다.
 ```
 
 <br>
@@ -291,6 +293,7 @@ server {
     
 
 `systemctl enable nginx`
+
 `systemctl start nginx`
 
 ---
