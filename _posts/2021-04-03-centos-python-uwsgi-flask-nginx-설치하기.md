@@ -22,17 +22,21 @@ last_modified_at: 2021-04-03
 # read me
 ```
 python 의 버전은 3.5를 사용하지 않아도 좋습니다. 
-하지만 3.9 보다는 낮은 버전을 추천합니다. 그 이유는 너무 상위 버전의 python을 사용하다 보면 라이브러리 충돌이 쉽게 발생하기 때문입니다. 3.5 혹은 3.6버전의 파이썬 사용시 라이브러리의 충돌 및 오류가 가장 적었습니다.
+하지만 3.9 보다는 낮은 버전을 추천합니다. 그 이유는 너무 상위 버전의 python을 사용하다 보면 라이브러리 충돌이 쉽게 발생하기 때문입니다. 
+3.5 혹은 3.6버전의 파이썬 사용시 라이브러리의 충돌 및 오류가 가장 적었습니다.
 
-centos의 버전은 7입니다. 6에서도 동일한 설정시 프로젝트의 동작에 문제가 없었지만 가장 최근에 테스트를 했던 버전은 7이었습니다.
+centos의 버전은 7입니다. 
+6에서도 동일한 설정시 프로젝트의 동작에 문제가 없었지만 가장 최근에 테스트를 했던 버전은 7이었습니다.
 ```
 
+<br>
+<br>
 
 # python3.5 설치
 
 `python3.5, 기본적으로 필요한 것들을 모두 설치해줍니다. `
 
-1.  #### repository 추가
+#### 1. repository 추가
     
 
 ```
@@ -40,14 +44,14 @@ sudo yum install -y epel-release.noarch
 sudo yum install -y https://repo.ius.io/ius-release-el7.rpm
 ```
 
-2.  #### python 3.x 버젼 확인
+#### 2. python 3.x 버젼 확인
     
 
 ```
 yum search python3
 ```
 
-3.  #### 설치
+#### 3. 설치
     
 
 ```
@@ -55,7 +59,7 @@ yum install -y python35u.x86_64, python35u-debug.x86_64, python35u-devel.x86_64,
 pip3.5 install --upgrade pip
 ```
 
-4.  #### 심볼릭 링크 추가
+#### 4. 심볼릭 링크 추가
     
 
 `python3.5 로 호출해서 사용할 예정이라면 심볼릭 링크를 추가하지 않아도 괜찮습니다.`
@@ -75,21 +79,21 @@ pip3.5 install --upgrade pip
 # pip 설치
 `각종 라이브러리를 설치하기 위해서 pip를 설치해줍니다.`
 
-1.  #### repository 추가
+#### 1. repository 추가
     
 
 ```
 rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 ```
 
-2.  #### 설치
+#### 2. 설치
     
 
 ```
 yum install -y python35u-pip
 ```
 
-3.  #### 버젼 확인
+#### 3. 버젼 확인
     
 
 ```
@@ -97,7 +101,7 @@ yum install -y python35u-pip
 pip 9.0.1 from /usr/lib/python3.5/site-packages (python 3.5)
 ```
 
-4.  #### 심볼릭 링크 추가
+#### 4. 심볼릭 링크 추가
     
 
 -   pip3.5로 호출해서 사용할 예정이라면 심볼릭 링크를 추가하지 않아도 괜찮다
@@ -108,7 +112,7 @@ cd /usr/bin
 ln -s pip pip3.5
 ```
 
-5.  #### 업그레이드
+#### 5. 업그레이드
     
 
 ```
@@ -128,14 +132,14 @@ pip install --upgrade pip
 
 -----
 
-1.  #### 가상환경 설치
+#### 1. 가상환경 설치
     
 
 ```
 pip install virtualenv
 ```
 
-2.  #### 가상환경 만들기
+#### 2. 가상환경 만들기
     
 
 -   내 경우에는 /home/env/로 잡았다
@@ -146,7 +150,7 @@ cd /가상환경설치할 경로
 virtualenv 가상환경이름
 ```
 
-3.  #### 가상환경 path 설정
+#### 3. 가상환경 path 설정
     
 
 ```
@@ -181,14 +185,14 @@ export PYTHONPATH=${PYTHONPATH}:/home/프로젝트경로/
 
 -----
 
-1.  #### 설치 파일 다운로드
+#### 1. 설치 파일 다운로드
     
 
 ```
 wget https://pypi.python.org/packages/6f/86/bad31f1c1bb0cc99e88ca2adb7cb5c71f7a6540c1bb001480513de76a931/mysqlclient-1.3.12.tar.gz#md5=dbf1716e2c01966afec0198d75ce7e69 
 ```
 
-2.  #### 압축 해제 후에 설치
+#### 2. 압축 해제 후에 설치
     
 
 ```
@@ -200,7 +204,7 @@ python3 setup.py build
 python3 setup.py install
 ```
 
-3.  #### 오류 발생시
+#### 3. 오류 발생시
     
 
 `이 아래 내용까지 실패하면 현재 환경은 깨끗하게 버리고 가상환경 새로 파는게 빠릅니다. 아니면 다른 서버에서 설치하고 라이브러리만 복사해오는게 빠를수도 있습니다`
@@ -233,7 +237,7 @@ pip install uwsgi, flask, flask_restful
 # nginx 설치
 
 
-1.  #### repository 추가
+#### 1. repository 추가
     
 
 -   vim /etc/yum.repos.d/nginx.repo
@@ -246,14 +250,14 @@ gpgcheck=0
 enabled=1
 ```
 
-2.  #### 설치
+#### 2. 설치
     
 
 ```
 yum -y install nginx
 ```
 
-3.  #### 설정 파일 수정
+#### 3. 설정 파일 수정
     
 
 -   vim /etc/nginx/conf.d/default.conf
@@ -279,7 +283,7 @@ server {
 }
 ```
 
-4.  #### 시작
+#### 4. 시작
     
 
 -   systemctl enable nginx
@@ -293,7 +297,7 @@ server {
 
 # 테스트
 
-1.  #### 테스트 수행 조건
+#### 1. 테스트 수행 조건
     
 
 `제대로 설치 되었는지, 제대로 동작하는지 확인이 필요하다면 3단계의 테스트가 필요합니다`
@@ -304,7 +308,7 @@ server {
 
 `이렇게 3단계 테스트를 진행하는 이유는 3번만 덜렁 테스트 진행시 오류가 발생하면 누가 바보인지 알기 힘들기 때문입니다. 차라리 깔끔하게 3단계로 진행하는것이 오류 파악도 더 빠릅니다. `
 
-2.  #### 테스트 프로젝트 생성
+#### 2. 테스트 프로젝트 생성
     
 
 -   /home/test 경로에 파일을 생성하고 테스트를 수행한다
@@ -353,7 +357,7 @@ ignore-write-errors = true
 disable-write-exception = true
 ```
 
-3.  #### 테스트
+#### 3. 테스트
     
 
 -   python project
@@ -388,7 +392,7 @@ uwsgi test.ini &
 
 # 오류 확인하기
 
-1.  #### permission denied
+#### 1. permission denied
     
 
 ```
