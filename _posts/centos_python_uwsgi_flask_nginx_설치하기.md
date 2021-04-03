@@ -39,6 +39,9 @@ pip3.5 install --upgrade pip
 
 ---
 
+<br>
+<br>
+
 # pip 설치
 
 -   각종 라이브러리를 설치하기 위해서 pip를 설치해준다
@@ -124,8 +127,11 @@ export PYTHONPATH=${PYTHONPATH}:/home/프로젝트경로/
 
 ---
 
-##   
-MySQLdb 설치 - 가상환경 activate 상태로 진행
+<br>
+<br>
+
+# MySQLdb 설치
+* 가상환경 activate 상태로 진행
 
 -   굳이 이걸 따로 빼놓은 이유는 각종 라이브러리중에 설치 도중에 이정도로 오류 많이 나는애는 MySQLdb밖에 못봐서 ㅠ..... MySQLdb 관련 글만 한 3개는 쓴듯 한데 이 방법이 그나마 오류가 덜나는 방법이다
 
@@ -164,6 +170,9 @@ pip install mysqlclient, MySQL-db
 
 ---
 
+<br>
+<br>
+
 # 라이브러리 설치
 
 ```
@@ -171,6 +180,9 @@ pip install uwsgi, flask, flask_restful
 ```
 
 ---
+
+<br>
+<br>
 
 # nginx 설치
 
@@ -230,6 +242,10 @@ server {
 -   systemctl start nginx
 
 ---
+
+
+<br>
+<br>
 
 # 테스트
 
@@ -321,6 +337,9 @@ uwsgi test.ini &
 
 ---
 
+<br>
+<br>
+
 # 오류 확인하기
 
 1.  #### permission denied
@@ -359,6 +378,10 @@ unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 root 7397 0.0  0.0 112816 
 [root@] semanage permissive -a httpd_t
 ```
 
-참고 문헌
+
+<br>
+<br>
+
+# 참고 문헌
 
 [www.nginx.com/blog/using-nginx-plus-with-selinux/](https://www.nginx.com/blog/using-nginx-plus-with-selinux/)
