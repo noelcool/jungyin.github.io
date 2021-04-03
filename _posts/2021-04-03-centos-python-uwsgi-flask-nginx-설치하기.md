@@ -3,12 +3,12 @@ title:  "centos7에 python, uwsgi, flask, nginx 설치하기"
 excerpt: ""
 
 categories:
-  - Blog
+  - Linux/Centos
 tags:
   - ["centos", "python", "uwsgi", "flask", "nginx"]
 
-toc: true
-toc_sticky: true
+toc: false
+toc_sticky: false
  
 date: 2021-04-03
 last_modified_at: 2021-04-03
