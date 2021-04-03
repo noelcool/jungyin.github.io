@@ -400,7 +400,8 @@ uwsgi test.ini &
 # 오류 확인하기
 
 #### 1. permission denied
-    
+
+`/var/log/nginx/error.log 에서 확인한 내용입니다`
 
 ```
 2021/03/29 08:31:45 [crit] 7306#7306: *1 connect() to unix:/tmp/test.sock failed (13: Permission denied) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /test/test HTTP/1.1", upstream: "uwsgi://unix:/tmp/test.sock:", host: "localhost"
@@ -425,10 +426,13 @@ srw-rw-rw-.  1 nginx nginx   0 Mar 29 08:31 test.sock
 
 -   selinux 문제입니다.
 -   nginx는 centos 6.6 이상에서 httpd\_t 컨텍스트로 레이블이 지정됩니다. 
--   허용 도메인 httpd\_t 를 목록에 추가하기
+
+```
+허용 도메인 httpd\_t 를 목록에 추가하기
     -   semanage permissive -a httpd\_t
--   허용 도메인 httpd\_t 를 목록에서 삭제
+허용 도메인 httpd\_t 를 목록에서 삭제
     -   semanage permissive -d httpd\_t
+```
 
 ```
 [root@] ps auZ | grep nginx
