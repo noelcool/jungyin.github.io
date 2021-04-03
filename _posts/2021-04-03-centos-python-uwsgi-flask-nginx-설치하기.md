@@ -18,12 +18,19 @@ last_modified_at: 2021-04-03
 
 
 
+-----
+# read me
+```
+python 의 버전은 3.5를 사용하지 않아도 좋습니다. 
+하지만 3.9 보다는 낮은 버전을 추천합니다. 그 이유는 너무 상위 버전의 python을 사용하다 보면 라이브러리 충돌이 쉽게 발생하기 때문입니다. 3.5 혹은 3.6버전의 파이썬 사용시 라이브러리의 충돌 및 오류가 가장 적었습니다.
 
+centos의 버전은 7입니다. 6에서도 동일한 설정시 프로젝트의 동작에 문제가 없었지만 가장 최근에 테스트를 했던 버전은 7이었습니다.
+```
 
 
 # python3.5 설치
 
--   python3.5, 기본적으로 필요한 것들을 모두 설치해준다
+`python3.5, 기본적으로 필요한 것들을 모두 설치해줍니다. `
 
 1.  #### repository 추가
     
@@ -51,7 +58,7 @@ pip3.5 install --upgrade pip
 4.  #### 심볼릭 링크 추가
     
 
--   python3.5 로 호출해서 사용할 예정이라면 심볼릭 링크를 추가하지 않아도 괜찮다
+`python3.5 로 호출해서 사용할 예정이라면 심볼릭 링크를 추가하지 않아도 괜찮습니다.`
 
 ```
 [root@centos] which python3.5
@@ -66,8 +73,7 @@ pip3.5 install --upgrade pip
 <br>
 
 # pip 설치
-
--   각종 라이브러리를 설치하기 위해서 pip를 설치해준다
+`각종 라이브러리를 설치하기 위해서 pip를 설치해줍니다.`
 
 1.  #### repository 추가
     
@@ -116,7 +122,11 @@ pip install --upgrade pip
 
 # 가상환경 설정
 
--   가상환경을 설치해주지 않아도 파이썬 사용은 가능하지만 각종 오류로 환경이 오염된 경우에는 가상환경만 날려주면 깔끔하게 새 가상환경에서 설치해줄 수 있기 때문에 설치해주는 것이 좋다
+-----
+
+`가상환경을 설치해주지 않아도 파이썬 사용은 가능하지만 각종 오류로 환경이 오염된 경우에는 가상환경만 날려주면 깔끔하게 새 가상환경에서 설치해줄 수 있기 때문에 설치해주는 것이 좋습니다.그리고 하나의 서버에서 여러개의 파이썬 프로젝트를 사용할 것이라면 가상환경은 필수로 설정이 필요합니다`
+
+-----
 
 1.  #### 가상환경 설치
     
@@ -149,6 +159,11 @@ vim activate
 ```
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export PYTHONPATH=${PYTHONPATH}:/home/프로젝트경로/
+
+이때 프로젝트의 경로가 조금 혼란스러울 수 있습니다.
+/home/python-project 안에 wsgi.py가 존재하며,
+나머지 파일들은 /home/python-project/test/application.py가 있다면
+최상위 경로인 /home/python-project/가 설정할 경로입니다. 
 ```
 
 ---
@@ -157,9 +172,14 @@ export PYTHONPATH=${PYTHONPATH}:/home/프로젝트경로/
 <br>
 
 # MySQLdb 설치
-* 가상환경 activate 상태로 진행
+`가상환경 activate 상태로 진행합니다.`
 
--   굳이 이걸 따로 빼놓은 이유는 각종 라이브러리중에 설치 도중에 이정도로 오류 많이 나는애는 MySQLdb밖에 못봐서 ㅠ..... MySQLdb 관련 글만 한 3개는 쓴듯 한데 이 방법이 그나마 오류가 덜나는 방법이다
+-----
+
+`MySQLdb는 설치 도중 오류가 굉장히 많이 발생하는 라이브러리입니다.
+어느정도냐면 3년간 python project를 centos 서버에 설치해왔는데 오류가 아예 나지 않은 일은 없습니다. 때문에 따로 정리합니다. `
+
+-----
 
 1.  #### 설치 파일 다운로드
     
@@ -183,7 +203,7 @@ python3 setup.py install
 3.  #### 오류 발생시
     
 
--   이 아래 내용까지 실패하면 그냥 깨끗하게 버리고 가상환경 새로 파는게 빠르다
+`이 아래 내용까지 실패하면 현재 환경은 깨끗하게 버리고 가상환경 새로 파는게 빠릅니다. 아니면 다른 서버에서 설치하고 라이브러리만 복사해오는게 빠를수도 있습니다`
 
 ```
 yum -y install gcc-c++ zlib zlib-devel libffi-devel
@@ -212,8 +232,6 @@ pip install uwsgi, flask, flask_restful
 
 # nginx 설치
 
--   nginx는 웹 서버의 일종으로 tomcat 에 비해서 설정이 간단한 편이다
--   단점이 있다면 windows에서는 볼일이 거의 없다는 점?...;ㅅ;??
 
 1.  #### repository 추가
     
@@ -278,11 +296,13 @@ server {
 1.  #### 테스트 수행 조건
     
 
--   제대로 설치 되었는지, 제대로 동작하는지 확인이 필요하다면 3단계의 테스트가 필요하다
-    -   python project
-    -   python project + uwsgi
-    -   python project + uwsgi + nginx
--   이렇게 3단계 테스트를 진행하는 이유는 3번만 덜렁 테스트 진행시 오류가 발생하면 누가 바보인지 알기 힘들기 때문이다. 차라리 깔끔하게 3단계로 진행하는것이 좋다.
+`제대로 설치 되었는지, 제대로 동작하는지 확인이 필요하다면 3단계의 테스트가 필요합니다`
+
+* python project
+* python project + uwsgi
+* python project + uwsgi + nginx
+
+`이렇게 3단계 테스트를 진행하는 이유는 3번만 덜렁 테스트 진행시 오류가 발생하면 누가 바보인지 알기 힘들기 때문입니다. 차라리 깔끔하게 3단계로 진행하는것이 오류 파악도 더 빠릅니다. `
 
 2.  #### 테스트 프로젝트 생성
     
@@ -375,23 +395,25 @@ uwsgi test.ini &
 2021/03/29 08:31:45 [crit] 7306#7306: *1 connect() to unix:/tmp/test.sock failed (13: Permission denied) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /test/test HTTP/1.1", upstream: "uwsgi://unix:/tmp/test.sock:", host: "localhost"
 ```
 
--   여기서 이상함을 느껴야 한다.. 왜냐면 uwsgi.ini 에서 우리는 분명 아래의 2개의 설정을 추가했다
--   이상함을 못느꼇다면 복붙만 하고 제대로 설정 안한거니까 반성타임을 가지는것이 좋겠다 ;ㅅ;
+
+`여기서 이상함을 느껴야 합니다. 왜냐면 uwsgi.ini 에서 분명 아래의 2개의 설정을 추가했기 때문입니다.`
+
 
 ```
 chown-socket = nginx:nginx
 chmod-socket = 666
 ```
 
--   혹시나 모르니까 권한을 한번 확인해본다
+`혹시나 모르니까 권한을 한번 확인해봅니다`
+
 -   ls -al /tmp
 
 ```
 srw-rw-rw-.  1 nginx nginx   0 Mar 29 08:31 test.sock
 ```
 
--   selinux 문제이다.
--   nginx는 centos 6.6 이상에서 httpd\_t 컨텍스트로 레이블이 지정된다
+-   selinux 문제입니다.
+-   nginx는 centos 6.6 이상에서 httpd\_t 컨텍스트로 레이블이 지정됩니다. 
 -   허용 도메인 httpd\_t 를 목록에 추가하기
     -   semanage permissive -a httpd\_t
 -   허용 도메인 httpd\_t 를 목록에서 삭제
