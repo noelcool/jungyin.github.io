@@ -104,7 +104,7 @@ pip 9.0.1 from /usr/lib/python3.5/site-packages (python 3.5)
 #### 4. 심볼릭 링크 추가
     
 
--   pip3.5로 호출해서 사용할 예정이라면 심볼릭 링크를 추가하지 않아도 괜찮다
+`pip3.5로 호출해서 사용할 예정이라면 심볼릭 링크를 추가하지 않아도 괜찮습니다`
 
 ```
 which pip3.5
@@ -142,8 +142,10 @@ pip install virtualenv
 #### 2. 가상환경 만들기
     
 
--   내 경우에는 /home/env/로 잡았다
--   이 경로 안에서 virtualenv test\_env를 하면 test\_env가 생기고 그 안에 설치된다
+`저의경우에는 /home/env/로 잡았습니다.`
+
+`이 경로 안에서 virtualenv test\_env를 하면 test\_env가 생기고 그 안에 설치됩니다.`
+
 
 ```
 cd /가상환경설치할 경로
@@ -158,7 +160,7 @@ cd /가상환경설치경로/가상환경이름/bin
 vim activate
 ```
 
--   가장 아래줄에 path 추가
+`가장 아래줄에 프로젝틔 path를 추가해줍니다.`
 
 ```
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
@@ -240,7 +242,8 @@ pip install uwsgi, flask, flask_restful
 #### 1. repository 추가
     
 
--   vim /etc/yum.repos.d/nginx.repo
+`vim /etc/yum.repos.d/nginx.repo`
+
 
 ```
 [nginx]
@@ -260,7 +263,8 @@ yum -y install nginx
 #### 3. 설정 파일 수정
     
 
--   vim /etc/nginx/conf.d/default.conf
+`vim /etc/nginx/conf.d/default.conf`
+
 
 ```
 server {
@@ -286,8 +290,8 @@ server {
 #### 4. 시작
     
 
--   systemctl enable nginx
--   systemctl start nginx
+`systemctl enable nginx`
+`systemctl start nginx`
 
 ---
 
@@ -311,7 +315,8 @@ server {
 #### 2. 테스트 프로젝트 생성
     
 
--   /home/test 경로에 파일을 생성하고 테스트를 수행한다
+`/home/test 경로에 파일을 생성하고 테스트를 수행한다`
+
 
 -   wsgi.py
 
@@ -361,7 +366,9 @@ disable-write-exception = true
     
 
 -   python project
-    -   테스트용 프로젝트를 설치해둔 경로로 이동 후에 백그라운드로 실행해서 확인한다
+
+`테스트용 프로젝트를 설치해둔 경로로 이동 후에 백그라운드로 실행해서 확인합니다`
+
 
 ```
 (test_env) [root@test] nohup python3 wsgi.py &
