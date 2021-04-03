@@ -14,6 +14,9 @@ date: 2021-04-03
 last_modified_at: 2021-04-03
 ---
 
+<br>
+<br>
+
 # python3.5 설치
 
 -   python3.5, 기본적으로 필요한 것들을 모두 설치해준다
@@ -103,6 +106,9 @@ pip install --upgrade pip
 ```
 
 ---
+
+<br>
+<br>
 
 # 가상환경 설정
 
