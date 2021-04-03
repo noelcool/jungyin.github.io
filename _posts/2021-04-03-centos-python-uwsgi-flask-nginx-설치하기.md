@@ -5,7 +5,7 @@ excerpt: ""
 categories:
   - Blog
 tags:
-  - []
+  - ["centos", "python", "uwsgi", "flask", "nginx"]
 
 toc: true
 toc_sticky: true
@@ -14,8 +14,12 @@ date: 2021-04-03
 last_modified_at: 2021-04-03
 ---
 
-<br>
-<br>
+
+
+
+
+
+
 
 # python3.5 설치
 
